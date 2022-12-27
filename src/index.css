@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.root,
+#root,
+#docs-root {
+  --primary-color: #fff;
+  --secondary-color: #000;
+}
+
+* {
+  @apply m-0 p-0 box-border font-mono;
+}
+
+.btn {
+  @apply border w-full rounded-md p-3;
+}
