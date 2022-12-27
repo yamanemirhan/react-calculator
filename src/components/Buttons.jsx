@@ -10,8 +10,8 @@ export default function Buttons({
   handleDotBtnClick,
 }) {
   return (
-    <div className="bg-slate-200 grid grid-rows-6 items-center space-y-1 my-2 py-1 w-full">
-      <div className="flex justify-between gap-2 px-2 text-center">
+    <div className="buttons">
+      <div className="btnsLineWrapper">
         <button onClick={handleOperationBtnClick} className="btn bg-slate-400">
           %
         </button>
@@ -26,7 +26,7 @@ export default function Buttons({
         </button>
       </div>
 
-      <div className="flex justify-between gap-2 px-2 text-center">
+      <div className="btnsLineWrapper">
         <button onClick={handleOperationBtnClick} className="btn bg-slate-400">
           1/X
         </button>
@@ -43,7 +43,7 @@ export default function Buttons({
         </button>
       </div>
 
-      <div className="flex justify-between gap-2 px-2 text-center">
+      <div className="btnsLineWrapper">
         <button
           onClick={handleNumBtnClick}
           className="btn text-white bg-teal-600"
@@ -67,7 +67,7 @@ export default function Buttons({
         </button>
       </div>
 
-      <div className="flex justify-between gap-2 px-2 text-center">
+      <div className="btnsLineWrapper">
         <button
           onClick={handleNumBtnClick}
           className="btn text-white bg-teal-600"
@@ -91,7 +91,7 @@ export default function Buttons({
         </button>
       </div>
 
-      <div className="flex justify-between gap-2 px-2 text-center">
+      <div className="btnsLineWrapper">
         <button
           onClick={handleNumBtnClick}
           className="btn text-white bg-teal-600"
@@ -115,7 +115,7 @@ export default function Buttons({
         </button>
       </div>
 
-      <div className="flex justify-between gap-2 px-2 text-center">
+      <div className="btnsLineWrapper">
         <button onClick={handleChangeSignBtnClick} className="btn bg-zinc-400">
           +/-
         </button>

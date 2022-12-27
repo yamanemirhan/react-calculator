@@ -1,23 +1,30 @@
 import React, { useState } from 'react';
+
+// COMPONENTS //
 import Buttons from './components/Buttons';
 import Display from './components/Display';
 
 export default function App() {
+  // STATES //
   const [operation, setOperation] = useState('');
   const [previousNum, setPreviousNum] = useState('');
   const [currentNum, setCurrentNum] = useState('0');
 
+  // ACTIONS //
+
+  // 0-1-2-3-4-5-6-7-8-9 //
   const handleNumBtnClick = (e) => {
     let val = e.target.innerText.toString();
     if (currentNum.length < 13) {
       if (currentNum == '0') {
-        setCurrentNum(() => val);
+        setCurrentNum(val);
       } else {
         setCurrentNum((prev) => prev.toString() + val);
       }
     }
   };
 
+  // 8 OPERATIONS //
   const handleOperationBtnClick = (e) => {
     if (e.target.parentElement.nodeName == 'BUTTON') {
       setOperation(e.target.parentElement.innerText.toString());
@@ -29,10 +36,13 @@ export default function App() {
     if (operation == '') setCurrentNum('0');
   };
 
+  // EQUAL BUTTON //
   const handleEqualBtnClick = async (e) => {
-    let ans;
+    let ans = '';
     let previousNumber = parseFloat(previousNum);
     let currentNumber = parseFloat(currentNum);
+
+    // CALCULATION //
     if (operation == '+') {
       ans = parseFloat(previousNumber + currentNumber);
     }
@@ -61,6 +71,7 @@ export default function App() {
     setOperation('');
     setPreviousNum('');
 
+    // HANDLE and SHOW ERROR //
     if (ans.toString() == 'NaN' || ans.toString() == 'Infinity') {
       setCurrentNum('ERROR');
 
@@ -84,6 +95,7 @@ export default function App() {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
+  // DEL BUTTON //
   const handleDelBtnClick = (e) => {
     if (currentNum == '0') {
       return;
@@ -95,6 +107,7 @@ export default function App() {
     }
   };
 
+  // CLEAR BUTTONS //
   const handleClearBtnClick = (e) => {
     if (e.target.innerText == 'CE') {
       setCurrentNum('0');
@@ -105,11 +118,13 @@ export default function App() {
     }
   };
 
+  // SIGN BUTTON //
   const handleChangeSignBtnClick = (e) => {
     setCurrentNum((prev) => prev * -1);
     setCurrentNum((prev) => prev.toString());
   };
 
+  // FLOAT BUTTON //
   const handleDotBtnClick = (e) => {
     if (currentNum == '') return;
     if (!currentNum.includes('.'))
@@ -117,8 +132,8 @@ export default function App() {
   };
 
   return (
-    <div className="bg-red-200 flex justify-center items-center min-h-screen text-lg font-semibold">
-      <div className="bg-blue-200 max-w-lg overflow-hidden container flex flex-col justify-center items-center rounded-lg shadow-2xl shadow-black">
+    <div className="app">
+      <div className="calculator">
         <h1 className="font-bold text-3xl p-2">CALCULATOR</h1>
         <Display
           previousNum={previousNum}
