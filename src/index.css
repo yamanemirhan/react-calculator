@@ -14,7 +14,7 @@
 }
 
 .app {
-  @apply bg-red-200 min-h-screen flex justify-center items-center text-lg font-semibold;
+  @apply bg-red-50 min-h-screen flex justify-center items-center text-lg font-semibold;
 }
 
 .calculator {
@@ -36,5 +36,5 @@
 
 /* DISPLAY */
 .display {
-  @apply bg-green-300 w-full flex flex-col text-2xl text-end p-6;
+  @apply bg-green-200 w-full flex flex-col text-2xl text-end p-6;
 }
